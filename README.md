@@ -1,4 +1,4 @@
-# Launch-Codes
+# Launch Codes
 A Teensy 4.0-Based Polyphonic Midi Chord-Step Sequencer
 
 A USB‑MIDI–driven **polyphonic chord sequencer** for Teensy 4.0.  
