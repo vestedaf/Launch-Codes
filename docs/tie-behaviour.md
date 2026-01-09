@@ -14,3 +14,21 @@
 ## ASCII timeline (one step = 6 ticks)
 
 ### Non‑tied step (Gate 50%)
+tick: 0 1 2 3 4 5
+     |-----|-----|
+Note: ON           OFF
+
+### Step tied forward (sustain into next step)
+Step N          Step N+1
+tick: 0 1 2 3 4 5 | 0 1 2 3 4 5
+     |-----|-----| |-----|-----|
+Note: ON  (hold across)        OFF
+
+- At **Step N**: Note **ON** at tick 0; **NO** Note Off at tick 3 or 5 (tie overrides gate).  
+- At **Step N+1**: **NO retrigger**; continue holding.  
+- When a non‑tied step is reached, send **OFF** at its end.
+
+## Transport & callbacks
+Teensy USB‑MIDI provides callbacks you register for:
+- `Clock` (0xF8), `Start` (0xFA), `Continue` (0xFB), `Stop` (0xFC).  
+- You must call `usbMIDI.read()` regularly for handlers to fire and buffers to drain. [6](https://docs.github.com/en/get-started/git-basics/git-workflows)[5](https://www.diystompboxes.com/smfforum/index.php?topic=128573.0)[8](https://githubflow.github.io/)
